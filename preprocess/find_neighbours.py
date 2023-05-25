@@ -52,7 +52,10 @@ def load_resources():
 def load_cpnet():
     global cpnet,concept2id, relation2id, id2relation, id2concept, cpnet_simple
     print("loading cpnet....")
-    cpnet = nx.read_gpickle(config["paths"]["conceptnet_en_graph"])
+
+    # cpnet = nx.read_gpickle(config["paths"]["conceptnet_en_graph"])
+    with open(config["paths"]["conceptnet_en_graph"], 'rb') as f:
+        G = pickle.load(f)
     print("Done")
 
     cpnet_simple = nx.Graph()
