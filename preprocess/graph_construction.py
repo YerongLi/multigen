@@ -77,8 +77,9 @@ def save_cpnet():
             graph.add_edge(subj, obj, rel=rel, weight=weight)
             graph.add_edge(obj, subj, rel=rel+len(relation2id), weight=weight)
 
-
-    nx.write_gpickle(graph, config["paths"]["conceptnet_en_graph"])
+        with open(config["paths"]["conceptnet_en_graph"], 'wb') as f:
+            pickle.dump(graph, f, pickle.HIGHEST_PROTOCOL)
+    # nx.write_gpickle(graph, config["paths"]["conceptnet_en_graph"])
     
 
 save_cpnet()
