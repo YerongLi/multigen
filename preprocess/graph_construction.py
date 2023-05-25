@@ -4,12 +4,14 @@ import itertools
 import math
 import random
 import json
-from tqdm import tqdm
+import pickle
 import sys
+from tqdm import tqdm
 import time
 import timeit
 import nltk
 import json
+
 # print('NLTK Version: %s' % (nltk.__version__))
 nltk.download('stopwords')
 nltk_stopwords = nltk.corpus.stopwords.words('english')
